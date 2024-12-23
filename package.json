@@ -1,0 +1,49 @@
+{
+  "name": "wepack-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "dev:debug": "webpack serve --mode development --env debug",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,scss,css,html}\"",
+    "build": "webpack --mode production",
+    "build:staging": "webpack --mode production --env staging",
+    "build:analyze": "webpack --mode production --env analyze",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --ci",
+    "dep:check": "npm outdated",
+    "dep:update": "npm update",
+    "dep:clean": "npm prune",
+    "deploy": "sh ./scripts/deploy.sh",
+    "deploy:staging": "sh ./scripts/deploy-staging.sh",
+    "ci:build": "npm run lint && npm run test && npm run build",
+    "ci:deploy": "npm run ci:build && npm run deploy",
+    "analyze": "webpack-bundle-analyzer dist/stats.json",
+    "audit": "npm audit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
